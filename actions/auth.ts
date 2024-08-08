@@ -5,6 +5,11 @@ import { z } from 'zod'
 import { redirect } from 'next/navigation'
 import { COOKIE_NAME } from '@/utils/constants'
 
+const authSchema = z.object({
+  email: z.string().email(),
+  password: z.string(),
+})
+
 export const registerUser = async (prevState: any, formData: FormData) => {
   const data = authSchema.parse({
     email: formData.get('email'),
