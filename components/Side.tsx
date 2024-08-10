@@ -6,6 +6,7 @@ import Logo from '@/images/pardy.png'
 import { Button } from '@nextui-org/react'
 import { usePathname } from 'next/navigation'
 import { cn } from '@nextui-org/react'
+import { signout } from '@/actions/signout'
 
 const links = [
   { route: '/dashboard', name: 'Home' },
@@ -53,7 +54,7 @@ const Side = () => {
         ))}
       </div>
       <div className="absolute bottom-0 w-full left-0 px-4">
-        <Button fullWidth variant="ghost">
+        <Button onClick={() => signout()} fullWidth variant="ghost">
           Sign Out
         </Button>
       </div>
